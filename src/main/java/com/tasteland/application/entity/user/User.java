@@ -1,4 +1,4 @@
-package com.tasteland.application.entity;
+package com.tasteland.application.entity.user;
 import javax.persistence.*;
 import java.util.Collection;
 

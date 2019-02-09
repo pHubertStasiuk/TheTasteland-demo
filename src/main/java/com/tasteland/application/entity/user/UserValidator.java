@@ -1,4 +1,4 @@
-package com.tasteland.application.entity;
+package com.tasteland.application.entity.user;
 
 import com.tasteland.application.utils.FieldMatch;
 import com.tasteland.application.utils.ValidEmail;
