@@ -12,7 +12,7 @@ public class FoodCategory {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "food_category")
+    @Column(name = "food_category_name")
     private String foodCategory;
 
     public FoodCategory(){}

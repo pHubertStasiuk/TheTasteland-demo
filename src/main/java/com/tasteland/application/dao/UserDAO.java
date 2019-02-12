@@ -1,6 +1,6 @@
 package com.tasteland.application.dao;
 
-import com.tasteland.application.entity.User;
+import com.tasteland.application.entity.user.User;
 
 
 public interface UserDAO {

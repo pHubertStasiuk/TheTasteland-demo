@@ -1,8 +1,8 @@
 package com.tasteland.application.controller;
 
 
-import com.tasteland.application.entity.User;
-import com.tasteland.application.entity.UserValidator;
+import com.tasteland.application.entity.user.User;
+import com.tasteland.application.entity.user.UserValidator;
 import com.tasteland.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -25,7 +25,7 @@ public class RegistrationController {
     private Logger logger = Logger.getLogger(getClass().getName());
     
 	@InitBinder
-	public void initBinder(WebDataBinder dataBinder) {
+	public void initUserRequest(WebDataBinder dataBinder) {
 		
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
@@ -47,10 +47,9 @@ public class RegistrationController {
 		
 		String userName = user.getUserName();
 		logger.info("Processing registration form for: " + userName);
-		
 		// form validation
 		 if (theBindingResult.hasErrors()){
-			 return "registration-form";
+			 return "registration";
 	        }
 
 		// check the database if user already exists
@@ -60,7 +59,7 @@ public class RegistrationController {
 			theModel.addAttribute("registrationError", "User name already exists.");
 
 			logger.warning("User name already exists.");
-        	return "registration-form";
+        	return "registration";
         }
      // create user account        						
         userService.save(user);

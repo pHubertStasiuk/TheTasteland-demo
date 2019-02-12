@@ -3,9 +3,9 @@ package com.tasteland.application.service;
 
 import com.tasteland.application.dao.RoleDAO;
 import com.tasteland.application.dao.UserDAO;
-import com.tasteland.application.entity.Role;
-import com.tasteland.application.entity.User;
-import com.tasteland.application.entity.UserValidator;
+import com.tasteland.application.entity.user.Role;
+import com.tasteland.application.entity.user.User;
+import com.tasteland.application.entity.user.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

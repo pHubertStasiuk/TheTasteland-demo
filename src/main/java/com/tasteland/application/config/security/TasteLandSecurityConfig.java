@@ -33,9 +33,8 @@ public class TasteLandSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers("/").hasRole("EMPLOYEE")
-                .antMatchers("/leaders/**").hasRole("MANAGER")
-                .antMatchers("/systems/**").hasRole("ADMIN")
+                .antMatchers("/").permitAll()
+                .antMatchers("/system/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/showMyLoginPage")
@@ -45,11 +44,8 @@ public class TasteLandSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/access-denied");
-
-//
-//                .and()
-//                .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400);*/
+                .exceptionHandling().accessDeniedPage("/access-denied")
+                .and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400);
     }
 
     @Bean

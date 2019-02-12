@@ -1,6 +1,6 @@
 package com.tasteland.application.dao;
 
-import com.tasteland.application.entity.Role;
+import com.tasteland.application.entity.user.Role;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

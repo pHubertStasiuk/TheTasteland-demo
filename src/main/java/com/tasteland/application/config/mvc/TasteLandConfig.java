@@ -20,6 +20,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Properties;
 
 @Configuration
@@ -55,7 +60,7 @@ public class TasteLandConfig implements WebMvcConfigurer {
 
         // set the jdbc driver
         try {
-            dataSource.setDriverClass("com.mysql.jdbc.Driver");
+            dataSource.setDriverClass(env.getProperty("jdbc.driver"));
         } catch (PropertyVetoException exception) {
             throw new RuntimeException();
         }
@@ -92,6 +97,7 @@ public class TasteLandConfig implements WebMvcConfigurer {
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
         props.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+        props.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
         return props;
     }
 

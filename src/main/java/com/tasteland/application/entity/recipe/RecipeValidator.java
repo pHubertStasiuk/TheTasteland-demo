@@ -67,11 +67,9 @@ public class RecipeValidator {
     public void setCookingTime(Integer cookingTime) {
         this.cookingTime = cookingTime;
     }
-
     public User getRecipeAuthor() {
         return recipeAuthor;
     }
-
     public void setRecipeAuthor(User recipeAuthor) {
         this.recipeAuthor = recipeAuthor;
     }
